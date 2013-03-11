@@ -48,6 +48,8 @@
 
 -(IBAction)login:(id)sender{
     
+    
+    
     if ([AutoBearsEnabled isOn]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"AutoBearsEnabled"];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -64,14 +66,11 @@
         return;
     }
     
-    
-    
-//    if (![self checkIfConnectedToAirBears]) {
-//        [UpdateLabel setText:@"Connect to AirBears, and choose Auto Join"];
-//        return;
-//    }else{
-//        [UpdateLabel setText:@""];
-//    }
+
+    if (![self checkIfConnectedToAirBears]) {
+        [[[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Please make sure you are connected to AirBears and try again!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil] show];
+        return;
+    }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://wlan.berkeley.edu/cgi-bin/login/cookie.cgi"]];
     [webView loadRequest:request];
