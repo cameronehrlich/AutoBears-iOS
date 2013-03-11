@@ -1,23 +1,125 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ABViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUR-cx-Ifo">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="Bmn-tF-KDD"/>
+                                </connections>
+                            </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CalNet ID" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-0c-PEO">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="yDR-U9-oQ5"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Xo5-jq-GdZ">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="AJJ-f6-tUn"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" text="Enable Auto Bears" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-fc-Jby">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrz-Nf-T02">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="N3f-z9-dJx"/>
+                                </constraints>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ru-HS-k99">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gTR-RP-ZWn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="2" eventType="touchUpInside" id="fQI-fT-iHF"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ilC-PW-Lbh"/>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xo5-jq-GdZ" firstAttribute="top" secondItem="CpW-0c-PEO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8Xm-bT-WbN"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ru-HS-k99" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Auc-bF-ief"/>
+                            <constraint firstItem="zUR-cx-Ifo" firstAttribute="top" secondItem="7Ru-HS-k99" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EHa-Yj-v0k"/>
+                            <constraint firstItem="Xo5-jq-GdZ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GGi-1C-cGm"/>
+                            <constraint firstAttribute="trailing" secondItem="Xo5-jq-GdZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="H7U-A2-SfL"/>
+                            <constraint firstAttribute="trailing" secondItem="zUR-cx-Ifo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KDA-C6-8G6"/>
+                            <constraint firstItem="7Ru-HS-k99" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ocd-Un-kfp"/>
+                            <constraint firstItem="CpW-0c-PEO" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PF8-M4-DnV"/>
+                            <constraint firstItem="CpW-0c-PEO" firstAttribute="top" secondItem="xrz-Nf-T02" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QRg-iB-JT0"/>
+                            <constraint firstItem="7Ru-HS-k99" firstAttribute="top" secondItem="Xo5-jq-GdZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QSo-Ve-u3J"/>
+                            <constraint firstAttribute="trailing" secondItem="xrz-Nf-T02" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vsd-t3-VdW"/>
+                            <constraint firstAttribute="bottom" secondItem="zUR-cx-Ifo" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Zxi-CQ-qUY"/>
+                            <constraint firstAttribute="trailing" secondItem="CpW-0c-PEO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cYG-3p-X8l"/>
+                            <constraint firstItem="CpW-0c-PEO" firstAttribute="top" secondItem="XSt-fc-Jby" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ckb-js-AIx"/>
+                            <constraint firstAttribute="trailing" secondItem="ilC-PW-Lbh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fvl-CR-mQ4"/>
+                            <constraint firstItem="xrz-Nf-T02" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jJO-T6-q7G"/>
+                            <constraint firstItem="xrz-Nf-T02" firstAttribute="leading" secondItem="XSt-fc-Jby" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="thg-I9-phE"/>
+                            <constraint firstItem="XSt-fc-Jby" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="uVy-Ww-4OE"/>
+                            <constraint firstItem="zUR-cx-Ifo" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wN4-ax-MSF"/>
+                            <constraint firstItem="7Ru-HS-k99" firstAttribute="centerY" secondItem="ilC-PW-Lbh" secondAttribute="centerY" type="default" id="xxo-do-oqa"/>
+                            <constraint firstItem="XSt-fc-Jby" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="yWP-Qm-nTA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AutoBearsEnabled" destination="xrz-Nf-T02" id="LIO-Vt-KpQ"/>
+                        <outlet property="CalNetID" destination="CpW-0c-PEO" id="baq-K0-tVR"/>
+                        <outlet property="Password" destination="Xo5-jq-GdZ" id="SNg-AJ-ZjW"/>
+                        <outlet property="activityIndicator" destination="ilC-PW-Lbh" id="4Fn-Gg-eJm"/>
+                        <outlet property="webView" destination="zUR-cx-Ifo" id="o9Q-tC-vNE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="ABViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ABViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="AutoBearsEnabled" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="CalNetID" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="Password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

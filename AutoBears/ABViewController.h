@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABViewController : UIViewController
+@interface ABViewController : UIViewController <UIWebViewDelegate, UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UISwitch *AutoBearsEnabled;
+@property (strong, nonatomic) IBOutlet UITextField *CalNetID;
+@property (strong, nonatomic) IBOutlet UITextField *Password;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+-(IBAction)login:(id)sender;
 
 @end
